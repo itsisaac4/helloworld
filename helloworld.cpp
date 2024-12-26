@@ -8,6 +8,8 @@ using namespace std;
 void printHelloWorld();
 void bubbleSort(vector<int>&);
 void printVector(vector<int>);
+vector<int> fibonacci(const int num);
+
 
 int main(){
 
@@ -54,3 +56,28 @@ void printHelloWorld() {
 	cout << "!";
 }
 
+bool hasFibonacci (vector<int>& arr, int n) {
+	vector<int> fib = fibonacci(n);
+	bubbleSort(arr);
+	bool found = false;
+	while (!found) {
+		int start = arr.size() / 2;
+		for (int i = start; i < arr.size(); i++) {
+			found = true; // THIS IS JUST TO STOP INFINITE LOOP IF ACCIDENTALLY BUILD
+		}
+	}
+}
+
+int fibFinder(int num) {
+	vector<int> fib = fibonacci(num);
+	return fib[num];
+}
+vector<int> fibonacci(const int num) {
+	vector<int> res;
+	int total = 1;
+	for (int i = num; i > 1; i--) {
+		total *= i;
+		res.push_back(total);
+	}
+	return res;
+}
